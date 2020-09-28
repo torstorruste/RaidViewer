@@ -37,5 +37,9 @@ namespace RaidViewer.Pages
             }
         }
 
+        public Player GetPlayer(int playerId) {
+            return Players.First(p=>p.Id==playerId);
+        }
+
     }
 }

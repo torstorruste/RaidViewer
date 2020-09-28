@@ -1,0 +1,17 @@
+<div>
+    <h3>@Player.Name</h3>
+
+    <ul>
+    @foreach(var encounter in Raid.Encounters) {
+        var character = GetCharacter(Player, encounter);
+        
+        @if(character==null) {
+            <li>@(GetBoss(encounter.BossId).Name): Benched</li>
+        } else {
+            <li>@(GetBoss(encounter.BossId).Name):<img src="images/classes/@(character.CharacterClass.ToString().ToLower()).png" width="20px" height="20px" />
+            <span class="@character.CharacterClass">@character.Name</span>
+            </li>
+        }
+    }
+    </ul>
+</div>

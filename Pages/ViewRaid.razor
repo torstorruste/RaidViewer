@@ -13,6 +13,10 @@
         @foreach(var encounter in Raid.Encounters) {
             <EncounterView Players="@Players" Encounter="@encounter" Bosses="@Bosses" />
         }
+
+        @foreach(var playerId in Raid.SignedUp) {
+            <PlayerView Raid="@Raid" Players="@Players" Bosses="@Bosses" Player="@GetPlayer(playerId)" />
+        }
     }
 }
 
