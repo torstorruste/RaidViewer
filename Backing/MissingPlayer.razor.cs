@@ -13,8 +13,18 @@ namespace RaidViewer.Pages
         [Parameter]
         public List<Player> Players { get; set; }
 
+        private string Visible = "collapse";
+
         public List<Player> GetMissingPlayers() {
             return Players.Where(p=>!Raid.SignedUp.Contains((int)p.Id)).ToList();
+        }
+
+        public void ToggleVisible() {
+            if(Visible=="collapse") {
+                Visible = "";
+            } else {
+                Visible = "collapse";
+            }
         }
     }
 }

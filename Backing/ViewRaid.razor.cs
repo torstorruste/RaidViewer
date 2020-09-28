@@ -26,6 +26,9 @@ namespace RaidViewer.Pages
 
         private string ErrorMessage;
 
+        private string EncountersVisible = "collapse";
+        private string PlayersVisible = "collapse";
+
         protected override async Task OnInitializedAsync()
         {
             try {
@@ -41,5 +44,20 @@ namespace RaidViewer.Pages
             return Players.First(p=>p.Id==playerId);
         }
 
+        public void ToggleEncounters() {
+            if(EncountersVisible=="collapse") {
+                EncountersVisible = "";
+            } else {
+                EncountersVisible = "collapse";
+            }
+        }
+
+        public void TogglePlayers() {
+            if(PlayersVisible=="collapse") {
+                PlayersVisible = "";
+            } else {
+                PlayersVisible = "collapse";
+            }
+        }
     }
 }

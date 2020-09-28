@@ -1,5 +1,5 @@
 <div>
-    <h2 @onclick="ToggleVisible">@( this.Visible=="collapse" ? "+" : "-")@(GetBoss(Encounter.BossId).Name)</h2>
+    <h3 @onclick="ToggleVisible">@( this.Visible=="collapse" ? "+" : "-")@(GetBoss(Encounter.BossId).Name)</h3>
 
     <div class="@Visible">
         @foreach(var role in GetRoles()) {

@@ -1,8 +1,10 @@
 <div>
-    Missing players:
-    <ul>
-        @foreach(var player in GetMissingPlayers()) {
-            <li>@player.Name</li>
-        }
-    </ul>
+    <h2 @onclick="ToggleVisible">@( this.Visible=="collapse" ? "+" : "-")Missing players:</h2>
+    <div class="@Visible">
+        <ul>
+            @foreach(var player in GetMissingPlayers()) {
+                <li>@player.Name</li>
+            }
+        </ul>
+    </div>
 </div>
