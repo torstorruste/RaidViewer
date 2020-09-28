@@ -6,7 +6,9 @@
     @if(Raid==null) {
         <h1>Loading...</h1>
     } else {
-        <h1>@Raid.Date</h1>
+        <h1>@Raid.Date.ToString("yyyy-MM-dd")</h1>
+
+        <MissingPlayers Players="@Players" Raid="@Raid" />
     }
 }
 
