@@ -19,6 +19,8 @@ namespace RaidViewer.Pages
         [Parameter]
         public Player Player { get; set; }
 
+        private string Visible = "collapse";
+
         public Boss GetBoss(int bossId)
         {
             return Bosses.First(b => b.Id == bossId);
@@ -34,6 +36,14 @@ namespace RaidViewer.Pages
                 return GetCharacter(encounter.Characters.First(c=>c.PlayerId==player.Id).CharacterId);
             } else {
                 return null;
+            }
+        }
+
+        public void ToggleVisible() {
+            if(Visible=="collapse") {
+                Visible = "";
+            } else {
+                Visible = "collapse";
             }
         }
     }
