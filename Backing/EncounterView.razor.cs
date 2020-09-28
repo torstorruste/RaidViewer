@@ -16,6 +16,9 @@ namespace RaidViewer.Pages
         [Parameter]
         public Encounter Encounter { get; set; }
 
+        private string Visible = "collapse";
+        private string BenchVisible = "collapse";
+
         public Boss GetBoss(int bossId)
         {
             return Bosses.First(b => b.Id == bossId);
@@ -35,9 +38,30 @@ namespace RaidViewer.Pages
                     .ToList();
         }
 
+        public List<Player> GetBenchedPlayers() {
+            var selectedPlayers = Encounter.Characters.Select(c=>c.PlayerId).ToList();
+            return Players.Where(p=>!selectedPlayers.Contains((int)p.Id)).ToList();
+        }
+
         public List<Role> GetRoles()
         {
             return new List<Role> { Role.Tank, Role.Healer, Role.Melee, Role.Ranged };
+        }
+
+        public void ToggleVisible() {
+            if(Visible=="collapse") {
+                Visible = "";
+            } else {
+                Visible = "collapse";
+            }
+        }
+
+        public void ToggleBench() {
+            if(BenchVisible=="collapse") {
+                BenchVisible = "";
+            } else {
+                BenchVisible = "collapse";
+            }
         }
     }
 }

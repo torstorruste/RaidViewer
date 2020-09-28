@@ -1,12 +1,23 @@
 <div>
-    <h2>@(GetBoss(Encounter.BossId).Name)</h2>
+    <h2 @onclick="ToggleVisible">@( this.Visible=="collapse" ? "+" : "-")@(GetBoss(Encounter.BossId).Name)</h2>
 
-    @foreach(var role in GetRoles()) {
-        <h3><img src="images/roles/@(role).png" width="20px" height="20px" />@role</h3>
-        <ul>
-        @foreach(var character in GetCharactersByRole(role)) {
-            <li class="@(character.CharacterClass)"><img src="images/classes/@(character.CharacterClass.ToString().ToLower()).png" width="20px" height="20px" />@character.Name</li>
+    <div class="@Visible">
+        @foreach(var role in GetRoles()) {
+            <h3><img src="images/roles/@(role).png" width="20px" height="20px" />@role</h3>
+            <ul>
+            @foreach(var character in GetCharactersByRole(role)) {
+                <li class="@(character.CharacterClass)"><img src="images/classes/@(character.CharacterClass.ToString().ToLower()).png" width="20px" height="20px" />@character.Name</li>
+            }
+            </ul>
         }
-        </ul>
-    }
+
+        <h3 @onclick="ToggleBench">@( this.BenchVisible=="collapse" ? "+" : "-")Bench</h3>
+        <div class="@BenchVisible">
+            <ul>
+            @foreach(var player in GetBenchedPlayers()) {
+                <li>@player.Name</li>
+            }
+            </ul>
+        </div>
+    </div>
 </div>
