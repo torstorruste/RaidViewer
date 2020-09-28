@@ -44,6 +44,7 @@ namespace RaidViewer.Pages
             if(Players.Exists(p=>p.Id==playerId)) {
                 return Players.First(p=>p.Id==playerId);
             } else {
+                Console.WriteLine($"Unknown player with id {playerId}");
                 return new Player{Name="Unknown", Characters=new List<Character>()};
             }
         }

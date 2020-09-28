@@ -36,6 +36,10 @@ namespace RaidViewer.Pages
             }
         }
 
+        public Role GetRole(Encounter encounter, Character character) {
+            return encounter.Characters.First(c=>c.CharacterId==character.Id).Role;
+        }
+
         public Character GetCharacter(Player player, Encounter encounter) {
             Console.WriteLine($"Getting character for player {player.Name} and encounter {encounter.BossId}");
             List<int> selectedPlayers = encounter.Characters.Select(c=>c.PlayerId).ToList();
