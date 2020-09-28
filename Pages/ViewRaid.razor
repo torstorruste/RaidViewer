@@ -1,0 +1,12 @@
+﻿@page "/"
+
+@if(ErrorMessage!=null) {
+    <h1>@ErrorMessage</h1>
+} else {
+    @if(Raid==null) {
+        <h1>Loading...</h1>
+    } else {
+        <h1>@Raid.Date</h1>
+    }
+}
+
