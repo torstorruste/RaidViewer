@@ -21,7 +21,7 @@ namespace RaidViewer
             builder.Services.AddScoped<IPlayerService, PlayerService>();
             builder.Services.AddScoped<IInstanceService, InstanceService>();
             builder.Services.AddScoped<IRaidService, RaidService>();
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:8080/") });
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://tor.superhelt.org:8080/") });
 
             await builder.Build().RunAsync();
         }
