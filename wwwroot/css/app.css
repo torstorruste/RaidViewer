@@ -181,3 +181,7 @@ app {
         display: block;
     }
 }
+
+ul {
+    list-style-type: none;
+}

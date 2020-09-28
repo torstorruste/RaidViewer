@@ -9,6 +9,10 @@
         <h1>@Raid.Date.ToString("yyyy-MM-dd")</h1>
 
         <MissingPlayers Players="@Players" Raid="@Raid" />
+
+        @foreach(var encounter in Raid.Encounters) {
+            <EncounterView Players="@Players" Encounter="@encounter" Bosses="@Bosses" />
+        }
     }
 }
 

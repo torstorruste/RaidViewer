@@ -1,0 +1,12 @@
+<div>
+    <h2>@(GetBoss(Encounter.BossId).Name)</h2>
+
+    @foreach(var role in GetRoles()) {
+        <h3><img src="images/roles/@(role).png" width="20px" height="20px" />@role</h3>
+        <ul>
+        @foreach(var character in GetCharactersByRole(role)) {
+            <li class="@(character.CharacterClass)"><img src="images/classes/@(character.CharacterClass.ToString().ToLower()).png" width="20px" height="20px" />@character.Name</li>
+        }
+        </ul>
+    }
+</div>
