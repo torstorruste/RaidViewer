@@ -41,7 +41,11 @@ namespace RaidViewer.Pages
         }
 
         public Player GetPlayer(int playerId) {
-            return Players.First(p=>p.Id==playerId);
+            if(Players.Exists(p=>p.Id==playerId)) {
+                return Players.First(p=>p.Id==playerId);
+            } else {
+                return new Player{Name="Unknown", Characters=new List<Character>()};
+            }
         }
 
         public void ToggleEncounters() {
