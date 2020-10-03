@@ -1,9 +1,9 @@
 <div>
-    <h3 @onclick="ToggleVisible">@( this.Visible=="collapse" ? "+" : "-")@(GetBoss(Encounter.BossId).Name)</h3>
+    <h3 class="bossname" @onclick="ToggleVisible">@( this.Visible=="collapse" ? "+" : "-")@(GetBoss(Encounter.BossId).Name)</h3>
 
-    <div class="@Visible">
+    <div class="roles-parent @Visible">
         @foreach(var role in GetRoles()) {
-            <h3><img src="images/roles/@(role.ToString().ToLower()).png" width="20px" height="20px" />@role</h3>
+            <h4 class="role"><img src="images/roles/@(role.ToString().ToLower()).png" width="20px" height="20px" />@role</h4>
             <ul>
             @foreach(var character in GetCharactersByRole(role)) {
                 <li class="@(character.CharacterClass)"><img src="images/classes/@(character.CharacterClass.ToString().ToLower()).png" width="20px" height="20px" />@character.Name</li>
@@ -11,7 +11,7 @@
             </ul>
         }
 
-        <h3 @onclick="ToggleBench">@( this.BenchVisible=="collapse" ? "+" : "-")Bench</h3>
+        <h4 @onclick="ToggleBench">@( this.BenchVisible=="collapse" ? "+" : "-")Bench</h4>
         <div class="@BenchVisible">
             <ul>
             @foreach(var player in GetBenchedPlayers()) {

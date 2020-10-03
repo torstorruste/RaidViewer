@@ -10,14 +10,14 @@
 
 
         <h2 @onclick="ToggleEncounters">@( this.EncountersVisible=="collapse" ? "+" : "-")Encounters:</h2>
-        <div class="@EncountersVisible">
+        <div class="first-indent @EncountersVisible">
         @foreach(var encounter in Raid.Encounters) {
             <EncounterView Players="@Players" Encounter="@encounter" Bosses="@Bosses" />
         }
         </div>
 
-        <h2 @onclick="TogglePlayers">@( this.PlayersVisible=="collapse" ? "+" : "-")Players:</h2>
-        <div class="@PlayersVisible">
+        <h2 class="players" @onclick="TogglePlayers">@( this.PlayersVisible=="collapse" ? "+" : "-")Players:</h2>
+        <div class="playervisible @PlayersVisible">
         @foreach(var playerId in Raid.SignedUp) {
             <PlayerView Raid="@Raid" Players="@Players" Bosses="@Bosses" Player="@GetPlayer(playerId)" />
         }
