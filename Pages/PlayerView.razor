@@ -9,9 +9,10 @@
             @if(character==null) {
                 <li class="benched">@(GetBoss(encounter.BossId).Name): Benched</li>
             } else {
-                <li>@(GetBoss(encounter.BossId).Name):<img src="images/classes/@(character.CharacterClass.ToString().ToLower()).png" width="20px" height="20px" />
-                <span class="benched-character" @character.CharacterClass">@character.Name</span>
-                <img src="images/roles/@(GetRole(encounter, character).ToString().ToLower()).png" width="20px" height="20px" />
+                <li>@(GetBoss(encounter.BossId).Name):
+                    <img src="images/classes/@(character.CharacterClass.ToString().ToLower()).png" width="20px" height="20px" />
+                    <span class="benched-character @character.CharacterClass">@character.Name</span>
+                    <img src="images/roles/@(GetRole(encounter, character).ToString().ToLower()).png" width="20px" height="20px" />
                 </li>
             }
         }
