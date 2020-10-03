@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace RaidPlannerClient.Model
@@ -15,5 +16,9 @@ namespace RaidPlannerClient.Model
         
         [JsonProperty("characters")]
         public List<Character> Characters { get; set; }
+
+        public CharacterClass GetMainCharacterClass() {
+            return Characters.OrderBy(c=>c.Id).First().CharacterClass;
+        }
     }
 }

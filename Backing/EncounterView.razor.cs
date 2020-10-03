@@ -8,6 +8,9 @@ namespace RaidViewer.Pages
     public partial class EncounterView : ComponentBase
     {
         [Parameter]
+        public Raid Raid { get; set; }
+
+        [Parameter]
         public List<Player> Players { get; set; }
 
         [Parameter]
@@ -28,9 +31,14 @@ namespace RaidViewer.Pages
             return Players.SelectMany(p => p.Characters).First(c => c.Id == characterId);
         }
 
-        public List<Player> GetBenchedPlayers() {
-            var selectedPlayers = Encounter.Characters.Select(c=>c.PlayerId).ToList();
-            return Players.Where(p=>!selectedPlayers.Contains((int)p.Id)).ToList();
+        public List<Player> GetBenchedPlayers()
+        {
+            var selectedPlayers = Encounter.Characters.Select(c => c.PlayerId).ToList();
+            var playersInRaid = Raid.SignedUp;
+            return Players
+                    .Where(p => !selectedPlayers.Contains((int)p.Id))
+                    .Where(p=> playersInRaid.Contains((int)p.Id))
+                    .ToList();
         }
 
         public List<Role> GetRoles()
@@ -38,10 +46,14 @@ namespace RaidViewer.Pages
             return new List<Role> { Role.Tank, Role.Healer, Role.Melee, Role.Ranged };
         }
 
-        public void ToggleVisible() {
-            if(Visible=="collapse") {
+        public void ToggleVisible()
+        {
+            if (Visible == "collapse")
+            {
                 Visible = "";
-            } else {
+            }
+            else
+            {
                 Visible = "collapse";
             }
         }

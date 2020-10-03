@@ -28,10 +28,12 @@ ul {
 }
 
 .playername {
-  color: white;
   margin-left: 20px;
 }
 
+.bossname:hover {
+  color: white;
+}
 
 a, .btn-link {
   color: #0366d6;
@@ -120,6 +122,11 @@ td, li, th {
   font-size: 1.5em;
   color: #FFE400;
 }
+
+.main h2:hover {
+  color: white;
+}
+
 .main .panel-heading {
   background-color: transparent;
   color: white;

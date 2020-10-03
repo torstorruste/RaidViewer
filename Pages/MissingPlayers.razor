@@ -3,7 +3,7 @@
     <div class="@Visible">
         <ul>
             @foreach(var player in GetMissingPlayers()) {
-                <li>@player.Name</li>
+                <li class="@(player.GetMainCharacterClass())">@player.Name</li>
             }
         </ul>
     </div>

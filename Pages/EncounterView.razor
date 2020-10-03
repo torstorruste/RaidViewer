@@ -13,7 +13,7 @@
             <h4 class="role">Bench</h4>
             <ul>
             @foreach(var player in GetBenchedPlayers()) {
-                <li>@player.Name</li>
+                <li class="@player.GetMainCharacterClass()">@player.Name</li>
             }
             </ul>
         </div>

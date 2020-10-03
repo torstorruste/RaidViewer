@@ -12,7 +12,7 @@
         <h2 @onclick="ToggleEncounters">@( this.EncountersVisible=="collapse" ? "+" : "-")Encounters:</h2>
         <div class="first-indent @EncountersVisible">
         @foreach(var encounter in Raid.Encounters) {
-            <EncounterView Players="@Players" Encounter="@encounter" Bosses="@Bosses" />
+            <EncounterView Raid="@Raid" Players="@Players" Encounter="@encounter" Bosses="@Bosses" />
         }
         </div>
 

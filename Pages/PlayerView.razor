@@ -1,5 +1,5 @@
 <div>
-    <h4 class="playername" @onclick="ToggleVisible">@( this.Visible=="collapse" ? "+" : "-")@Player.Name</h4>
+    <h4 class="playername @(Player.GetMainCharacterClass())" @onclick="ToggleVisible">@( this.Visible=="collapse" ? "+" : "-")@Player.Name</h4>
 
     <div class="@Visible">
         <ul>
