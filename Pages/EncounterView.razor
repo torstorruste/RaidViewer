@@ -1,18 +1,16 @@
 <div>
     <h3 class="bossname" @onclick="ToggleVisible">@( this.Visible=="collapse" ? "+" : "-")@(GetBoss(Encounter.BossId).Name)</h3>
 
-    <div class="roles-parent @Visible">
-        @foreach(var role in GetRoles()) {
-            <h4 class="role"><img src="images/roles/@(role.ToString().ToLower()).png" width="20px" height="20px" />@role</h4>
-            <ul>
-            @foreach(var character in GetCharactersByRole(role)) {
-                <li class="@(character.CharacterClass)"><img src="images/classes/@(character.CharacterClass.ToString().ToLower()).png" width="20px" height="20px" />@character.Name</li>
-            }
-            </ul>
-        }
+    <div class="flex-container roster @Visible">
+        <div class="flex-container flex-content">
+            <RoleView Players="@Players" Encounter="@Encounter" Role="RaidPlannerClient.Model.Role.Tank" />
+            <RoleView Players="@Players" Encounter="@Encounter" Role="RaidPlannerClient.Model.Role.Melee" />
+            <RoleView Players="@Players" Encounter="@Encounter" Role="RaidPlannerClient.Model.Role.Healer"/>
+            <RoleView Players="@Players" Encounter="@Encounter" Role="RaidPlannerClient.Model.Role.Ranged"/>
+        </div>
 
-        <h4 @onclick="ToggleBench">@( this.BenchVisible=="collapse" ? "+" : "-")Bench</h4>
-        <div class="@BenchVisible">
+        <div class="flex-content">
+            <h4 class="role">Bench</h4>
             <ul>
             @foreach(var player in GetBenchedPlayers()) {
                 <li>@player.Name</li>

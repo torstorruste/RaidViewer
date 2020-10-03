@@ -11,6 +11,10 @@ html, body {
   background-position: top center;
 }
 
+ul {
+  list-style: none;
+}
+
 .first-indent {
   margin-left: 20px;
 }
@@ -59,30 +63,27 @@ td, li, th {
   color: white;
   padding-right: 3px;
 }
-
-.player-column {
-  padding-right: 20px;
+.roster {
+  width: 700px;
 }
 
-.flex-container .team {
-  width: 25%;
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-basis: auto;
 }
-.flex-container .bench {
+
+.flex-content {
+  box-sizing: border-box;
   width: 50%;
 }
+
 .flex-container h4 {
   color: #FFE400;
-}
-
-.instance-name h4 {
-  color: white !important;
-}
-
-.panel {
-  margin-left: 5px;
-}
-.panel h4 {
-  color: white;
 }
 
 .mdc-button__ripple {

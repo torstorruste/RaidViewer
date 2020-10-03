@@ -1,0 +1,11 @@
+<div class="flex-content">
+    <h4 class="role"><img src="images/roles/@(Role.ToString().ToLower()).png" width="20px" height="20px" />@Role</h4>
+    <ul>
+    @foreach(var character in GetCharactersByRole()) {
+        <li class="@(character.CharacterClass)">
+            <img src="images/classes/@(character.CharacterClass.ToString().ToLower()).png" width="20px" height="20px" />
+            @character.Name
+        </li>
+    }
+    </ul>
+</div>
